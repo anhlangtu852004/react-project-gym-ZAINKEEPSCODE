@@ -1,0 +1,39 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-h {
+  padding: 2rem;
+  padding-top: 1.5rem;
+  flex: 3;
+}
+
+.right-h {
+  flex: 1;
+}
+
+.the-best-ad {
+  margin-top: 80px;
+  background-color: #363d42;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 4rem;
+  text-transform: uppercase;
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.the-best-ad > span {
+  z-index: 2;
+}
+.the-best-ad > div {
+  background-color: var(--orange);
+  position: absolute;
+  left: 6px;
+  width: 5rem;
+  height: 80%;
+  border-radius: 5rem;
+  z-index: 1;
+}
