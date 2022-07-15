@@ -145,3 +145,30 @@
   right: 20rem;
   z-index: -1;
 }
+
+.calories {
+  display: flex;
+  gap: 2rem;
+  background-color: var(--caloryCard);
+  border-radius: 5px;
+  width: fit-content;
+  padding: 1rem;
+  position: absolute;
+  top: 32rem;
+  right: 28rem;
+}
+.calories > img {
+  width: 3rem;
+}
+.calories > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.calories > div > :nth-child(1) {
+  color: var(--gray);
+}
+.calories > div > :nth-child(2) {
+  color: white;
+  font-size: 1.5rem;
+}
