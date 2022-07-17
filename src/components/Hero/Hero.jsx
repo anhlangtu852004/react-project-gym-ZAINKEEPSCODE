@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 //import componest
 import Header from "../Header/Header";
 
@@ -13,6 +13,7 @@ import Heart from "../../assets/heart.png";
 import Calories from "../../assets/calories.png";
 
 const Hero = () => {
+  const transition = { type: "spring", duration: 3 };
   return (
     <div className="hero">
       <div className="blur hero-blur"></div>
@@ -20,7 +21,7 @@ const Hero = () => {
         <Header />
         {/* the best add */}
         <div className="the-best-ad">
-          <div></div>
+          <motion.div></motion.div>
           <span>the best fitness club in town</span>
         </div>
 
