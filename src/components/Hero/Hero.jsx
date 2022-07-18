@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 //import componest
 import Header from "../Header/Header";
 
@@ -12,6 +12,46 @@ import hero_image_back from "../../assets/hero_image_back.png";
 import Heart from "../../assets/heart.png";
 import Calories from "../../assets/calories.png";
 
+const theBestVariants = {
+  start: {
+    x: 220,
+  },
+  end: {
+    x: 7,
+    transition: {
+      type: "tween",
+      duration: 3,
+    },
+  },
+};
+
+const heartRateVariants = {
+  start: {
+    right: "-1rem",
+  },
+  end: {
+    // x: "-50px",
+    right: "4rem",
+    transition: {
+      type: "tween",
+      duration: 3,
+    },
+  },
+};
+const caloriesVariants = {
+  start: {
+    x: "-1rem",
+  },
+  end: {
+    // x: "-50px",
+    x: "5rem",
+    transition: {
+      type: "tween",
+      duration: 3,
+    },
+  },
+};
+
 const Hero = () => {
   return (
     <div className="hero">
@@ -20,7 +60,12 @@ const Hero = () => {
         <Header />
         {/* the best add */}
         <div className="the-best-ad">
-          <div></div>
+          <motion.div
+            variants={theBestVariants}
+            initial="start"
+            // animate="end"
+            whileInView="end"
+          ></motion.div>
           <span>the best fitness club in town</span>
         </div>
 
@@ -65,22 +110,33 @@ const Hero = () => {
       </div>
       <div className="right-h">
         <button className="btn"> Join Now</button>
-        <div className="heart-rate">
+        <motion.div
+          className="heart-rate"
+          variants={heartRateVariants}
+          initial="start"
+          whileInView="end"
+        >
           <img src={Heart} alt="" />
           <span>Heart rate</span>
           <span>116 bpm</span>
-        </div>
+        </motion.div>
         {/* hero imgae */}
         <img src={hero_image} alt="" className="hero-image" />
         <img src={hero_image_back} alt="" className="hero-image_back" />
         {/* hero calories */}
-        <div className="calories">
+        <motion.div
+          className="calories"
+          variants={caloriesVariants}
+          initial="start"
+          // animate='end'
+          whileInView="end"
+        >
           <img src={Calories} alt="" />
           <div>
             <span>Calories burn</span>
             <span>220 cal</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
