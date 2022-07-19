@@ -1,31 +1,100 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "./Testimonial.css";
 import { testimonialsData } from "../../data/testimonialsData";
 import leftArrow from "../../assets/leftArrow.png";
 import rightArrow from "../../assets/rightArrow.png";
+
+const messageVariants = {
+  hidden: {
+    x: -20,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    x: "-100vw",
+    opacity: 0,
+  },
+};
+const messageVariants2 = {
+  hidden: {
+    x: -20,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    x: "-100vw",
+    opacity: 0,
+  },
+};
+
+const imageVariants = {
+  hidden: {
+    x: 20,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "tween",
+      duration: 1,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Testimonial = () => {
   const [selected, setSelected] = useState(0);
   const tLength = testimonialsData.length;
 
   return (
-    <div className="Testimonials">
+    <div className="Testimonials" id="testimonials">
       <div className="left-t">
         <span>Testimonials</span>
         <span className="stroke-text">what they</span>
         <span>say about us</span>
-        <span>{testimonialsData[selected].review}</span>
-        <span>
+        <motion.span
+          key={selected}
+          variants={messageVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          {testimonialsData[selected].review}
+        </motion.span>
+        <motion.span>
           <span style={{ color: "var(--orange)" }}>
             {testimonialsData[selected].name}
           </span>{" "}
           - {testimonialsData[selected].status}
-        </span>
+        </motion.span>
       </div>
       <div className="right-t">
         <div></div>
         <div></div>
-        <img src={testimonialsData[selected].image} alt="" />
+        <motion.img
+          variants={imageVariants}
+          initial="hidden"
+          animate="visible"
+          key={selected}
+          src={testimonialsData[selected].image}
+          alt=""
+        />
 
         <div className="arrows">
           <img
